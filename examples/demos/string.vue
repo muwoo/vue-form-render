@@ -5,6 +5,7 @@
         :formData="formData"
         @on-change="change"
         @validate="validate"
+        :options="options"
     />
   </div>
 </template>
@@ -37,7 +38,57 @@ export default {
           "date": {
             "title": "日期选择",
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "ui:options": {
+              "placeholder": "请选择日期",
+              "show-time": true,
+              "format": "YYYY/MM/DD HH:mm:ss",
+              "type": "DatePicker",
+            }
+          },
+          "week": {
+            "title": "week选择",
+            "type": "string",
+            "format": "date",
+            "ui:options": {
+              "format": "YYYY-wo",
+              "type": "WeekPicker",
+            }
+          },
+          "moth": {
+            "title": "moth选择",
+            "type": "string",
+            "format": "date",
+            "ui:options": {
+              "format": "YYYY-MM",
+              "type": "MonthPicker",
+            }
+          },
+          "image": {
+            "title": "图片展示",
+            "type": "string",
+            "format": "image"
+          },
+          "number": {
+            "title": "数字",
+            "type": "number",
+            "ui:options": {
+              "max": 3
+            }
+          },
+          "select": {
+            "title": "单选",
+            "type": "string",
+            "enum": [
+              "a",
+              "b",
+              "c"
+            ],
+            "enumNames": [
+              "选项1",
+              "选项2",
+              "选项3"
+            ]
           }
         },
       },

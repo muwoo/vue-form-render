@@ -11,7 +11,9 @@
     "ant-design-vue": "^2.0.0-rc.7",
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vuedraggable": "^4.0.1",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@ant-design-vue/babel-plugin-jsx": "^1.0.0-rc.1",

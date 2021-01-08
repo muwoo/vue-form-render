@@ -23,8 +23,8 @@ export default {
     const { format = 'text', maxLength } = schema.value;
     const type = ['image', 'email'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
 
-    const handleChange = e => {
-      onChange.value(name.value, e.target.value);
+    const handleChange = v => {
+      onChange.value(name.value, v);
     };
 
     const _options = { ...options };
@@ -59,14 +59,38 @@ export default {
         maxLength,
         suffix,
       };
+
       return (
-        <a-input
-          {...config}
-          value={value.value}
-          type={type}
-          disabled={disabled.value || readOnly.value}
-          onInput={handleChange}
-        />
+        <div className="form-item">
+          <div>{props.schema.title}</div>
+          {
+            props.schema.enum ? (
+              <a-select
+                value={value.value}
+                onChange={handleChange}
+              >
+                {
+                  props.schema.enum.map((item, index) => (
+                    <a-select-option
+                      value={item}
+                      key={item}
+                    >
+                      {props.schema.enumNames ? props.schema.enumNames[index] || props.schema.enum[index] : props.schema.enum[index]}
+                    </a-select-option>
+                  ))
+                }
+              </a-select>
+            ) : (
+              <a-input
+                {...config}
+                value={value.value}
+                type={type}
+                disabled={disabled.value || readOnly.value}
+                onInput={e => handleChange(e.target.value)}
+              />
+            )
+          }
+        </div>
       )
     };
   }

@@ -1,10 +1,10 @@
 <template>
   <div>
     <formRender
-        :schema="schema"
-        :formData="formData"
-        @on-change="change"
-        @validate="validate"
+      :schema="schema"
+      :formData="formData"
+      @on-change="change"
+      @validate="validate"
     />
   </div>
 </template>
@@ -16,33 +16,27 @@ export default {
   name: 'App',
   setup() {
     const state = reactive({
-      schema: {
-        type: 'object',
-        properties: {
-          config: {
-            title: '数组',
-            type: 'array',
-            items: {
-              "type": "object",
-              properties: {
-                text: {
-                  title: '字符串',
-                  type: 'string',
-                  maxLength: 4,
-                  'ui:options': {
-                    placeholder: '试着输入超过4个字符',
-                  },
-                },
-              }
-            },
+      "schema": {
+        "title": "对象数组",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "properties": {
+            "tickets": {
+              "title": "门票数",
+              "type": "string"
+            }
           }
-        },
+        }
       },
-      formData: {
-        config: [{
-          text: 'aaa'
-        }]
-      },
+      formData: [
+        {
+          tickets: '123',
+        }
+      ],
     });
 
     const change = (v) => {

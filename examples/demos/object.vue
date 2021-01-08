@@ -17,30 +17,59 @@ export default {
   setup() {
     const state = reactive({
       "schema": {
-        "title": "对象数组",
-        "type": "array",
-        "minItems": 1,
-        "maxItems": 3,
-        "uniqueItems": true,
-        "items": {
-          "type": "object",
-          "properties": {
-            "tickets": {
-              "title": "门票数",
-              "type": "string"
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名称"
+          },
+          "configs": {
+            "title": "对象",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "title": "string"
+              },
+              "array": {
+                "type": "array",
+                "title": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "input1": {
+                      "title": "简单输入框",
+                      "type": "string"
+                    },
+                    "selet1": {
+                      "title": "单选",
+                      "type": "string",
+                      "enum": [
+                        "a",
+                        "b",
+                        "c"
+                      ],
+                      "enumNames": [
+                        "早",
+                        "中",
+                        "晚"
+                      ]
+                    }
+                  }
+                }
+              }
             }
           }
         }
       },
-      formData: [
-        {
-          tickets: '123',
-        }
-      ],
+      formData: {
+
+      },
     });
 
     const change = (v) => {
       state.formData = v;
+      console.log(v);
     }
     const validate = (v) => {
       console.log(v);

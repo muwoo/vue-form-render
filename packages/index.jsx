@@ -7,7 +7,8 @@ import Map from './widgets/map.jsx';
 export default {
   props: {
     schema: Object,
-    formData: Object
+    formData: Object,
+    options: Object,
   },
 
   setup(props, {emit}) {
@@ -44,6 +45,7 @@ export default {
             value={data}
             name="$form"
             onChange={handleChange}
+            settings={props.options}
           />
         </div>
       )

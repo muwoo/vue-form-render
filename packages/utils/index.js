@@ -164,4 +164,5 @@ function getSubSchemas(schema = {}) {
 export {
   resolve,
   getSubSchemas,
+  clone,
 };
