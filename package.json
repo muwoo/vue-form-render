@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "build:example": "vue-cli-service build",
     "build": "vue-cli-service build --target lib --name kaer-form-render --dest lib packages/index.jsx",
     "lint": "vue-cli-service lint"
   },
