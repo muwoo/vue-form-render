@@ -117,7 +117,8 @@ export default {
   justify-content: space-between;
   width: 100%;
   .preview {
-    width: 400px;
+    flex: 1;
+    border: 1px solid #ddd;
   }
 }
 /* required class */
@@ -132,6 +133,7 @@ export default {
   line-height: 1.5;
   padding: 5px;
   flex: 1;
+  margin-left: 20px;
 }
 
 /* optional class for removing the outline */
