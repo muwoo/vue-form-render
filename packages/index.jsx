@@ -1,6 +1,6 @@
 /* eslint-disable */
 import {toRefs, watch} from 'vue';
-import { resolve } from './utils/index';
+import { resolve, clone } from './utils/index';
 import Map from './widgets/map.jsx';
 
 
@@ -14,12 +14,17 @@ export default {
   setup(props, {emit}) {
     if (!props.schema) return null;
 
-    const {formData} = toRefs(props)
+    const {formData, schema} = toRefs(props)
 
     let data = resolve(props.schema, formData.value);
     emit('on-change', data);
     watch(formData,() => {
       data = formData.value;
+    });
+
+    watch(schema,() => {
+      data = resolve(props.schema, formData.value);
+      emit('on-change', data);
     });
 
     // data修改比较常用，所以放第一位
@@ -34,7 +39,7 @@ export default {
     };
 
     const handleChange = (key, val) => {
-      emit('on-change', val);
+      emit('on-change', clone(val));
     };
     return () => {
       return (

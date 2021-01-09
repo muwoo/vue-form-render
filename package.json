@@ -27,6 +27,8 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "less": "^4.0.0",
     "less-loader": "^7.2.1",
+    "prismjs": "^1.23.0",
+    "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.2"
   },
   "eslintConfig": {

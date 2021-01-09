@@ -1,18 +1,15 @@
 <template>
   <div>
-    <formRender
-        :schema="schema"
-        :formData="formData"
-        @on-change="change"
-        @validate="validate"
-        :options="options"
+    <Demo
+        :schemaProps="schema"
+        :formDataProps="formData"
     />
   </div>
 </template>
 
 <script>
 import {reactive, toRefs} from 'vue';
-import formRender from '../../packages/index.jsx';
+import Demo from './demo';
 export default {
   name: 'App',
   setup() {
@@ -93,26 +90,14 @@ export default {
         },
       },
       formData: {
-        input: 'aaa'
       },
     });
-
-    const change = (v) => {
-      state.formData = v;
-      console.log(v);
-    }
-    const validate = (v) => {
-      console.log(v);
-    }
-
     return {
       ...toRefs(state),
-      change,
-      validate,
     }
   },
   components: {
-    formRender,
+    Demo
   }
 }
 </script>

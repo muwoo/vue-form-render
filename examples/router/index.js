@@ -1,7 +1,8 @@
 import Simple from '../demos/simple';
 import Object from '../demos/object';
-import Array from '../demos/array';
 import String from '../demos/string';
+import Multi from '../demos/multi';
+import All from '../demos/all';
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -12,19 +13,24 @@ const routes = [
     component: Simple
   },
   {
+    path: '/all',
+    name: 'all',
+    component: All
+  },
+  {
     path: '/object',
     name: 'object',
     component: Object
   },
   {
-    path: '/array',
-    name: 'array',
-    component: Array
-  },
-  {
     path: '/string',
     name: 'string',
     component: String
+  },
+  {
+    path: '/multi',
+    name: 'multi',
+    component: Multi
   },
   {
     path: '/:pathMatch(.*)*',

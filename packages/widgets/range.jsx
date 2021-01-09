@@ -2,42 +2,6 @@ import {toRefs} from 'vue';
 import moment from 'moment';
 import '../styles/common.less';
 
-const DatePicker = (props) => {
-  return (
-    <a-date-picker
-      {...props}
-      value={props.value}
-      onChange={props.onChange}
-    />
-  )
-}
-
-const MonthPicker = (props) => {
-  return (
-    <a-month-picker
-      {...props}
-      value={props.value}
-      onChange={props.onChange}
-    />
-  )
-}
-
-const WeekPicker = (props) => {
-  return (
-    <a-week-picker
-      {...props}
-      value={props.value}
-      onChange={props.onChange}
-    />
-  )
-}
-
-const Map = {
-  DatePicker,
-  MonthPicker,
-  WeekPicker,
-}
-
 export default {
   props: {
     schema: Object,
@@ -59,18 +23,24 @@ export default {
       onChange.value(name.value, str);
     }
     const options = props.schema["ui:options"] || {};
-    const Picker = Map[options.type || 'DatePicker'];
-    return () => {
 
+    const getRangeValue = (value, format) => {
+      if (!value) return [];
+      const startTime = value[0] ? moment(value[0], format) : '';
+      const endTime = value[1] ? moment(value[1], format) : '';
+      return [startTime, endTime];
+    }
+
+    return () => {
       return (
         <div className="form-item">
           <div>{props.schema.title}</div>
-          <Picker
+          <a-range-picker
             {...options}
-            value={value.value ? moment(value.value, options.format) : null}
+            value={getRangeValue(value.value, options.format)}
             onChange={handleChange}
           />
-         </div>
+        </div>
       )
     }
   }

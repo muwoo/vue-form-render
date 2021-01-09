@@ -1,17 +1,15 @@
 <template>
   <div>
-    <formRender
-        :schema="schema"
-        :formData="formData"
-        @on-change="change"
-        @validate="validate"
+    <Demo
+        :schemaProps="schema"
+        :formDataProps="formData"
     />
   </div>
 </template>
 
 <script>
 import {reactive, toRefs} from 'vue';
-import formRender from '../../packages/index.jsx';
+import Demo from './demo';
 export default {
   name: 'App',
   setup() {
@@ -36,7 +34,6 @@ export default {
         },
       },
       formData: {
-        string: 'aaa'
       },
     });
 
@@ -55,7 +52,7 @@ export default {
     }
   },
   components: {
-    formRender,
+    Demo,
   }
 }
 </script>

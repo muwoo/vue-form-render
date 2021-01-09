@@ -1,8 +1,8 @@
 <template>
   <div>
     <Demo
-      :schemaProps="schema"
-      :formDataProps="formData"
+        :schemaProps="schema"
+        :formDataProps="formData"
     />
   </div>
 </template>
@@ -10,27 +10,40 @@
 <script>
 import {reactive, toRefs} from 'vue';
 import Demo from './demo';
-
 export default {
   name: 'App',
   setup() {
     const state = reactive({
-      "schema": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "名称"
+      schema: {
+        type: 'object',
+        properties: {
+          string: {
+            title: '字符串',
+            type: 'string',
+            maxLength: 4,
+            'ui:options': {
+              placeholder: '试着输入超过4个字符',
+            },
           },
-          "configs": {
-            "title": "对象",
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "title": "string"
+          select: {
+            title: '单选',
+            type: 'string',
+            enum: ['a', 'b', 'c'],
+            enumNames: ['选项1', '选项2', '选项3'],
+          },
+          object: {
+            type: 'object',
+            title: '对象',
+            properties: {
+              string: {
+                title: '字符串',
+                type: 'string',
+                maxLength: 4,
+                'ui:options': {
+                  placeholder: '试着输入超过4个字符',
+                },
               },
-              "array": {
+              array: {
                 "type": "array",
                 "title": "array",
                 "items": {
@@ -59,13 +72,11 @@ export default {
               }
             }
           }
-        }
+        },
       },
       formData: {
-
       },
     });
-
     return {
       ...toRefs(state),
     }

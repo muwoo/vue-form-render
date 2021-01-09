@@ -19,7 +19,7 @@ export default {
       disabled,
       readOnly,
     } = toRefs(props);
-    const { format = 'text' } = schema.value;
+    const { format = 'text', max, min } = schema.value;
     const type = ['image', 'email'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
 
     const handleChange = v => {
@@ -32,13 +32,29 @@ export default {
       return (
         <div className="form-item">
           <div>{props.schema.title}</div>
-          <a-input-number
-            {...options}
-            value={value.value}
-            type={type}
-            disabled={disabled.value || readOnly.value}
-            onChange={handleChange}
-          />
+          {
+            props.schema["ui:widget"] === 'slider' ? (
+              <a-slider
+                {...options}
+                value={value.value}
+                type={type}
+                onChange={handleChange}
+                max={max}
+                min={min}
+              />
+            ) : (
+              <a-input-number
+                {...options}
+                value={value.value}
+                type={type}
+                disabled={disabled.value || readOnly.value}
+                onChange={handleChange}
+                max={max}
+                min={min}
+              />
+            )
+          }
+
         </div>
       )
     };

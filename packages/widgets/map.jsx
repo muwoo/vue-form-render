@@ -8,6 +8,10 @@ import color from './color';
 import date from './date';
 import image from './image';
 import number from './number';
+import boolean from './boolean';
+import range from './range';
+import multiSelect from './multiSelect'
+import multiCheckbox from './multiCheckbox'
 
 const reader = new FileReader();
 
@@ -17,6 +21,10 @@ const mapping = {
   object: 'map',
   array: 'array',
   number: 'number',
+  boolean: 'boolean',
+  multiSelect: 'multiSelect',
+  multiCheckbox: 'multiCheckbox',
+  'range:dateTime': 'range',
   'string:color': 'color',
   'string:image': 'image',
   'string:date': 'date',
@@ -31,8 +39,9 @@ const map = {
     name: String,
   },
   setup(props) {
-    const childrenSchemas = getSubSchemas(props.schema);
     return () => {
+      const childrenSchemas = getSubSchemas(props.schema);
+
       return (
         <div className="form-item object">
           {props.schema.title && <div className="title">{props.schema.title}</div>}
@@ -74,8 +83,8 @@ const array = {
     name: String,
   },
   setup(props) {
-    const childrenSchemas = getSubSchemas(props.schema);
     const parseExcel = (file) => {
+      const childrenSchemas = getSubSchemas(props.schema);
       reader.readAsArrayBuffer(file);
       // 第二步 监听读取完成后的回调
       reader.onload = function(e){
@@ -88,7 +97,15 @@ const array = {
         // 取出第一个sheet
         const sheet1 = wb.Sheets[sheet1name];
         // 调用XLSX.utils.sheet_to_json方法将sheet转化为json;
-        const value = XLSX.utils.sheet_to_json(sheet1);
+        let value = [];
+        const originValue = props.value[0] ? clone(props.value)[0] : resolve(childrenSchemas[0].schema);
+        if (typeof originValue !== "object") {
+          value = XLSX.utils.sheet_to_json(sheet1, {header:1});
+          value = value.map(v => v[0]);
+        } else {
+          value = XLSX.utils.sheet_to_json(sheet1);
+        }
+
         props.onChange(props.name, value);
       }
 
@@ -96,7 +113,9 @@ const array = {
     }
 
     const exportExcel = () => {
-      const data = props.value.length ? clone(props.value) : [resolve(childrenSchemas[0].schema)];
+      const childrenSchemas = getSubSchemas(props.schema);
+      let data = props.value.length ? clone(props.value) : [resolve(childrenSchemas[0].schema)];
+      if (typeof data[0] !== "object") data = [data]
       const ws = XLSX.utils.json_to_sheet(data);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws);
@@ -104,6 +123,38 @@ const array = {
     }
 
     return () => {
+      const childrenSchemas = getSubSchemas(props.schema);
+
+      const type = props.schema["ui:widget"];
+
+      if (type === 'multiSelect') {
+        return (
+          <multiSelect
+            className="flex1"
+            value={props.value}
+            schema={props.schema}
+            name={props.name}
+            onChange={(key, val) => {
+              props.onChange(props.name, val);
+            }}
+          />
+        )
+      }
+
+      if (props.schema.enum) {
+        return (
+          <multiCheckbox
+            className="flex1"
+            value={props.value}
+            schema={props.schema}
+            name={props.name}
+            onChange={(key, val) => {
+              props.onChange(props.name, val);
+            }}
+          />
+        )
+      }
+
       return (
         <div className="form-item object">
           {
@@ -139,7 +190,7 @@ const array = {
               modelValue={props.value}
               class="list-group"
               handle=".handle"
-              handler=""
+              itemKey="list-group"
               onUpdate:modelValue={(v) => {
                 const value = [
                   ...clone(v),
@@ -208,6 +259,10 @@ const widgets = {
   array,
   image,
   number,
+  boolean,
+  range,
+  multiSelect,
+  multiCheckbox,
 }
 
 export default map

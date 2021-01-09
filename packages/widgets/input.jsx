@@ -1,4 +1,41 @@
 import {toRefs} from 'vue';
+
+const Select = ({value, handleChange, props, type}) => {
+  if (type === 'radio') {
+    return (
+      <a-radio-group name="radioGroup" onChange={(e) => handleChange(e.target.value)} value={value}>
+        {
+          props.schema.enum.map((item, index) => (
+            <a-radio
+              value={item}
+              key={item}
+            >
+              {props.schema.enumNames ? props.schema.enumNames[index] || props.schema.enum[index] : props.schema.enum[index]}
+            </a-radio>
+          ))
+        }
+      </a-radio-group>
+    )
+  }
+  return (
+    <a-select
+      value={value}
+      onChange={handleChange}
+    >
+      {
+        props.schema.enum.map((item, index) => (
+          <a-select-option
+            value={item}
+            key={item}
+          >
+            {props.schema.enumNames ? props.schema.enumNames[index] || props.schema.enum[index] : props.schema.enum[index]}
+          </a-select-option>
+        ))
+      }
+    </a-select>
+  )
+}
+
 export default {
   props: {
     schema: Object,
@@ -65,21 +102,12 @@ export default {
           <div>{props.schema.title}</div>
           {
             props.schema.enum ? (
-              <a-select
+              <Select
+                type={props.schema["ui:widget"]}
                 value={value.value}
-                onChange={handleChange}
-              >
-                {
-                  props.schema.enum.map((item, index) => (
-                    <a-select-option
-                      value={item}
-                      key={item}
-                    >
-                      {props.schema.enumNames ? props.schema.enumNames[index] || props.schema.enum[index] : props.schema.enum[index]}
-                    </a-select-option>
-                  ))
-                }
-              </a-select>
+                props={props}
+                handleChange={handleChange}
+              />
             ) : (
               <a-input
                 {...config}
