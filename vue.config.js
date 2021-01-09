@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   // 修改 src 为 examples
+  publicPath: "./",
   pages: {
     index: {
       entry: 'examples/main.js',
