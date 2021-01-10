@@ -4,6 +4,7 @@ import String from '../demos/string';
 import Multi from '../demos/multi';
 import All from '../demos/all';
 import Array from '../demos/array'
+import RichText from '../demos/richText'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -37,6 +38,11 @@ const routes = [
     path: '/array',
     name: 'array',
     component: Array
+  },
+  {
+    path: '/richText',
+    name: 'richText',
+    component: RichText
   },
   {
     path: '/:pathMatch(.*)*',

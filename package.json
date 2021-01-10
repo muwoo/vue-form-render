@@ -26,6 +26,7 @@
     "moment": "^2.29.1",
     "vue": "^3.0.0",
     "vuedraggable": "^4.0.1",
+    "wangeditor": "^4.6.2",
     "xlsx": "^0.16.9"
   },
   "devDependencies": {

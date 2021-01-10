@@ -12,6 +12,7 @@ import boolean from './boolean';
 import range from './range';
 import multiSelect from './multiSelect'
 import multiCheckbox from './multiCheckbox'
+import richText from './richText'
 
 const reader = new FileReader();
 
@@ -248,6 +249,7 @@ const mapping = {
   'string:color': 'color',
   'string:image': 'image',
   'string:date': 'date',
+  'string:richText': 'richText',
 }
 
 const widgets = {
@@ -262,6 +264,7 @@ const widgets = {
   range,
   multiSelect,
   multiCheckbox,
+  richText,
 }
 
 export {

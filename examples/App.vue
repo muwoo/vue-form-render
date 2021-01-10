@@ -8,6 +8,8 @@
       <router-link to="array">array</router-link>
 
       <router-link to="object">object</router-link>
+      <router-link to="richText">richText</router-link>
+
     </div>
     <router-view />
   </div>
