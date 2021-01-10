@@ -1,8 +1,7 @@
 /* eslint-disable */
 import {toRefs, watch} from 'vue';
 import { resolve, clone } from './utils/index';
-import Map from './widgets/map.jsx';
-
+import {widgets, mapping} from './widgets';
 
 export default {
   props: {
@@ -27,24 +26,14 @@ export default {
       emit('on-change', data);
     });
 
-    // data修改比较常用，所以放第一位
-    const resetData = (newData, newSchema) => {
-      const _schema = newSchema || props.schema;
-      const _formData = newData || props.formData;
-      const res = resolve(_schema, _formData);
-      return new Promise(resolve => {
-        emit('on-change', res);
-        resolve(res);
-      });
-    };
-
     const handleChange = (key, val) => {
       emit('on-change', clone(val));
     };
     return () => {
+      const Field = widgets[mapping[`${props.schema.type}${props.schema.format ? `:${props.schema.format}` : ''}`]];
       return (
         <div className="vue-form-render">
-          <Map
+          <Field
             schema={props.schema}
             formData={data}
             value={data}

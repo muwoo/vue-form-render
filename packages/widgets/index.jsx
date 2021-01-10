@@ -15,22 +15,7 @@ import multiCheckbox from './multiCheckbox'
 
 const reader = new FileReader();
 
-const mapping = {
-  default: 'input',
-  string: 'input',
-  object: 'map',
-  array: 'array',
-  number: 'number',
-  boolean: 'boolean',
-  multiSelect: 'multiSelect',
-  multiCheckbox: 'multiCheckbox',
-  'range:dateTime': 'range',
-  'string:color': 'color',
-  'string:image': 'image',
-  'string:date': 'date',
-}
-
-const map = {
+const index = {
   props: {
     schema: Object,
     formData: Object,
@@ -250,10 +235,24 @@ const array = {
   }
 }
 
+const mapping = {
+  default: 'input',
+  string: 'input',
+  object: 'map',
+  array: 'array',
+  number: 'number',
+  boolean: 'boolean',
+  multiSelect: 'multiSelect',
+  multiCheckbox: 'multiCheckbox',
+  'range:dateTime': 'range',
+  'string:color': 'color',
+  'string:image': 'image',
+  'string:date': 'date',
+}
 
 const widgets = {
   input,
-  map,
+  map: index,
   color,
   date,
   array,
@@ -265,4 +264,7 @@ const widgets = {
   multiCheckbox,
 }
 
-export default map
+export {
+  widgets,
+  mapping
+}

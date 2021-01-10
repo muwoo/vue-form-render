@@ -3,6 +3,7 @@ import Object from '../demos/object';
 import String from '../demos/string';
 import Multi from '../demos/multi';
 import All from '../demos/all';
+import Array from '../demos/array'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -31,6 +32,11 @@ const routes = [
     path: '/multi',
     name: 'multi',
     component: Multi
+  },
+  {
+    path: '/array',
+    name: 'array',
+    component: Array
   },
   {
     path: '/:pathMatch(.*)*',

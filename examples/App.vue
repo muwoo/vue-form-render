@@ -5,6 +5,7 @@
       <router-link to="all">所有组件</router-link>
       <router-link to="string">string</router-link>
       <router-link to="multi">multi</router-link>
+      <router-link to="array">array</router-link>
 
       <router-link to="object">object</router-link>
     </div>
