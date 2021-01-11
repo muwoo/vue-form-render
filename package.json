@@ -1,6 +1,6 @@
 {
   "name": "kaer-form-render",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:example": "vue-cli-service build",
@@ -20,6 +20,11 @@
       "email": "2424880409@qq.com"
     }
   ],
+  "files": [
+    "lib",
+    "packages"
+  ],
+  "main": "lib/kaer-form-render.common.js",
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.7",
     "core-js": "^3.6.5",

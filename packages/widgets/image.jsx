@@ -36,7 +36,7 @@ export default {
     return () => {
       return (
         <div className="form-item">
-          <div>{props.schema.title}</div>
+          <div className="form-item-title">{props.schema.title}</div>
           <div className="flex align-center">
             <a-upload
               action="http://api.91jkys.com:8096"

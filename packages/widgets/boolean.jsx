@@ -27,7 +27,7 @@ export default {
           {
             props.schema["ui:widget"] === 'switch' ? (
               <div>
-                <div>{props.schema.title}</div>
+                <div className="form-item-title">{props.schema.title}</div>
                 <a-switch
                   value={value.value}
                   onChange={handleChange}

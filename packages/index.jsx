@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {toRefs, watch} from 'vue';
+import {toRefs, watch, reactive} from 'vue';
 import { resolve, clone } from './utils/index';
 import {widgets, mapping} from './widgets';
 
@@ -18,10 +18,10 @@ export default {
     let data = resolve(props.schema, formData.value);
     emit('on-change', data);
     watch(formData,() => {
-      data = formData.value;
+      data = resolve(props.schema, formData.value);
     });
 
-    watch(schema,() => {
+    watch(schema.value,() => {
       data = resolve(props.schema, formData.value);
       emit('on-change', data);
     });

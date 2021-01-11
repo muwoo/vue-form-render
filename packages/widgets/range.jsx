@@ -34,7 +34,7 @@ export default {
     return () => {
       return (
         <div className="form-item">
-          <div>{props.schema.title}</div>
+          <div className="form-item-title">{props.schema.title}</div>
           <a-range-picker
             {...options}
             value={getRangeValue(value.value, options.format)}

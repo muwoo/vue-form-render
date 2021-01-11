@@ -24,7 +24,7 @@ export default {
     return () => {
       return (
         <div className="form-item">
-          <div>{props.schema.title}</div>
+          <div className="form-item-title">{props.schema.title}</div>
           <div className="flex align-center">
             <a-input
               style={{width: '50px', height: '32px', padding: 0}}

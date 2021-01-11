@@ -71,7 +71,7 @@ export default {
     return () => {
       return (
         <div className="form-item">
-          <div>{props.schema.title}</div>
+          <div className="form-item-title">{props.schema.title}</div>
           <div ref={editor}></div>
         </div>
       )
