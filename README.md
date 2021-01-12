@@ -24,7 +24,7 @@ Base on Vue 3.x, Quickly generates custom form configuration interfaces using JS
 
 ![](https://user-images.githubusercontent.com/21073039/104287172-086aca80-54f1-11eb-877a-45e7bcf0a909.gif)
 
-![image](https://user-images.githubusercontent.com/21073039/104297940-5f2ad100-54fe-11eb-8d49-dd83db3b2b16.png)
+![image](https://user-images.githubusercontent.com/21073039/104298169-a1541280-54fe-11eb-9e16-da4414962293.png)
 
 
 ## install
