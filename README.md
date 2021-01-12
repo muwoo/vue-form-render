@@ -1,12 +1,30 @@
 # vue-form-render
-🚴 Base on Vue 3.x, Quickly generates custom form configuration interfaces using JSON Schema.
+Base on Vue 3.x, Quickly generates custom form configuration interfaces using JSON Schema.
 ## examples
 
 [form-render live Demo](https://muwoo.github.io/kaer-form-render/)
 
 ![](./public/imgs/img.png)
 
-## usage
+## install
+```shell
+npm i kaer-form-render --save
+```
+`kear form render` depend on [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/)
+to render from items.so before we use `kaer form render` we need to install `Ant Design of Vue` and import it to our project:
+```vue
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+
+const app = createApp(App);
+app.use(Antd);
+app.mount('#app');
+```
+
+## easy demo
 
 ```vue
 <template>
@@ -15,14 +33,19 @@
       :schema="schema"
       :formData="formData"
       @on-change="change"
-      @validate="validate"
+      @on-validate="validate"
     />
   </div>
 </template>
 
 <script>
 import {reactive, toRefs} from 'vue';
-import formRender from '../../packages/index.jsx';
+
+// render index
+import FormRender from 'kaer-form-render';
+// form render style
+import 'kaer-form-render/lib/kaer-form-render.css';
+
 export default {
   name: 'App',
   setup() {
@@ -31,19 +54,13 @@ export default {
         type: 'object',
         properties: {
           string: {
-            title: '字符串',
+            title: 'string',
             type: 'string',
             maxLength: 4,
             'ui:options': {
-              placeholder: '试着输入超过4个字符',
+              placeholder: 'enter more than 4 characters',
             },
-          },
-          select: {
-            title: '单选',
-            type: 'string',
-            enum: ['a', 'b', 'c'],
-            enumNames: ['选项1', '选项2', '选项3'],
-          },
+          }
         },
       },
       formData: {
@@ -66,9 +83,20 @@ export default {
     }
   },
   components: {
-    formRender,
+    FormRender,
   }
 }
 </script>
 
 ```
+
+## Documentation
+For extensive documentation see the examples folder or read it on [form-render](https://x-render.gitee.io/form-render/guide/design)
+
+## Special thanks
+
+this Project inspiration from [form-render](https://x-render.gitee.io/form-render/guide/design) 
+but There is no similar framework for Vue 3.x
+
+
+
