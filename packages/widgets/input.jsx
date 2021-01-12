@@ -97,7 +97,7 @@ export default {
       };
 
       return (
-        <div>
+        <div className="form-item">
           <div className="form-item-title">
             {props.schema.title}
             <span style={{
