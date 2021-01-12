@@ -1,10 +1,12 @@
 import {toRefs} from 'vue';
 import moment from 'moment';
 import '../styles/common.less';
+import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
 
 const DatePicker = (props) => {
   return (
     <a-date-picker
+      locale={locale}
       {...props}
       value={props.value}
       onChange={props.onChange}
@@ -15,6 +17,7 @@ const DatePicker = (props) => {
 const MonthPicker = (props) => {
   return (
     <a-month-picker
+      locale={locale}
       {...props}
       value={props.value}
       onChange={props.onChange}
@@ -25,6 +28,7 @@ const MonthPicker = (props) => {
 const WeekPicker = (props) => {
   return (
     <a-week-picker
+      locale={locale}
       {...props}
       value={props.value}
       onChange={props.onChange}
@@ -42,7 +46,6 @@ export default {
   props: {
     schema: Object,
     formData: Object,
-    options: Object,
     name: String,
     onChange: Function,
     value: [String, Number, Boolean, Object],

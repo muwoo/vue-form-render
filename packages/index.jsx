@@ -6,8 +6,7 @@ import {widgets, mapping} from './widgets';
 export default {
   props: {
     schema: Object,
-    formData: Object,
-    options: Object,
+    formData: Object
   },
 
   setup(props, {emit}) {
@@ -40,7 +39,6 @@ export default {
             value={data}
             name="$form"
             onChange={handleChange}
-            settings={props.options}
           />
         </div>
       )

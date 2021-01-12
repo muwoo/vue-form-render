@@ -1,12 +1,12 @@
 import {toRefs} from 'vue';
 import moment from 'moment';
 import '../styles/common.less';
+import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
 
 export default {
   props: {
     schema: Object,
     formData: Object,
-    options: Object,
     name: String,
     onChange: Function,
     value: [String, Number, Boolean, Object],
@@ -42,6 +42,7 @@ export default {
             }}>{props.invalidText && props.invalidText}</span>
           </div>
           <a-range-picker
+            locale={locale}
             {...options}
             value={getRangeValue(value.value, options.format)}
             onChange={handleChange}

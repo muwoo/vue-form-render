@@ -5,7 +5,6 @@ export default {
   props: {
     schema: Object,
     formData: Object,
-    options: Object,
     name: String,
     onChange: Function,
     value: [String, Number, Boolean, Object],
@@ -35,13 +34,13 @@ export default {
                   }}>{props.invalidText && props.invalidText}</span>
                 </div>
                 <a-switch
-                  value={value.value}
+                  checked={value.value}
                   onChange={handleChange}
                 />
               </div>
             ) : (
               <a-checkbox
-                value={value.value}
+                checked={value.value}
                 onChange={() => handleChange(!value.value)}
               >
                 {props.schema.title}

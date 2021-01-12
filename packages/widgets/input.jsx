@@ -40,7 +40,6 @@ export default {
   props: {
     schema: Object,
     formData: Object,
-    options: Object,
     name: String,
     onChange: Function,
     value: [String, Number, Boolean, Object],
@@ -50,7 +49,6 @@ export default {
   },
   setup(props) {
     let {
-      options = {},
       schema,
       onChange,
       name,
@@ -58,7 +56,7 @@ export default {
       disabled,
       readOnly,
     } = toRefs(props);
-    const { format = 'text', maxLength } = schema.value;
+    const { format = 'text', maxLength, 'ui:options': options } = schema.value;
     const type = ['image', 'email'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
 
     const handleChange = v => {

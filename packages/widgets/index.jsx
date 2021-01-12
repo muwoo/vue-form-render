@@ -1,4 +1,3 @@
-import { PlusOutlined, BarsOutlined, DeleteOutlined } from '@ant-design/icons-vue';
 import Draggable from "vuedraggable";
 import XLSX from 'xlsx';
 
@@ -74,7 +73,7 @@ const array = {
     value: [String, Number, Boolean, Object],
     onChange: Function,
     name: String,
-    invalidText: Boolean,
+    invalidText: String,
   },
   setup(props) {
     const parseExcel = (file) => {
@@ -241,9 +240,7 @@ const array = {
     }
   },
   components: {
-    PlusOutlined,
     Draggable,
-    BarsOutlined,
   }
 }
 

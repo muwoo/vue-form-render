@@ -1,4 +1,6 @@
 const path = require('path');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
 
 module.exports = {
   // 修改 src 为 examples
@@ -9,6 +11,13 @@ module.exports = {
       template: 'public/index.html',
       filename: 'index.html'
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new AntdDayjsWebpackPlugin({
+        preset: 'antdv3'
+      })
+    ]
   },
   // 扩展 webpack 配置，使 packages 加入编译
   chainWebpack: config => {

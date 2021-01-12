@@ -1,12 +1,10 @@
 import {toRefs} from "vue";
-import { UploadOutlined, FileImageOutlined } from '@ant-design/icons-vue';
 import '../styles/common.less';
 
 export default {
   props: {
     schema: Object,
     formData: Object,
-    options: Object,
     name: String,
     onChange: Function,
     value: [String, Number, Boolean, Object],
@@ -75,9 +73,5 @@ export default {
         </div>
       )
     }
-  },
-  components: {
-    UploadOutlined,
-    FileImageOutlined,
   }
 }

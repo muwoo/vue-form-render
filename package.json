@@ -21,13 +21,13 @@
     }
   ],
   "files": [
-    "lib",
-    "packages"
+    "lib"
   ],
   "main": "lib/kaer-form-render.common.js",
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.7",
     "core-js": "^3.6.5",
+    "dayjs": "^1.10.3",
     "moment": "^2.29.1",
     "validator": "^13.5.2",
     "vue": "^3.0.0",
@@ -42,14 +42,17 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "antd-dayjs-webpack-plugin": "^1.0.4",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "less": "^4.0.0",
     "less-loader": "^7.2.1",
     "prismjs": "^1.23.0",
     "vue-prism-editor": "^2.0.0-alpha.2",
-    "vue-router": "^4.0.2"
+    "vue-router": "^4.0.2",
+    "webpack-bundle-analyzer": "^4.3.0"
   },
   "eslintConfig": {
     "root": true,
