@@ -14,6 +14,8 @@ import {
   InputNumber,
   Slider,
   Switch,
+  Popover,
+  Upload
 } from 'ant-design-vue';
 import {
   FileImageOutlined,
@@ -38,6 +40,8 @@ app.use(Image);
 app.use(InputNumber);
 app.use(Slider);
 app.use(Switch);
+app.use(Popover);
+app.use(Upload);
 
 app.component('FileImageOutlined', FileImageOutlined)
 app.component('UploadOutlined', UploadOutlined)
