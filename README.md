@@ -1,4 +1,22 @@
-# vue-form-render
+<h1 align= "center">
+    vue-form-render
+</h1>
+
+<p align="center">
+ <a href="">
+    <img alt="npm" src="https://img.shields.io/github/package-json/v/muwoo/kaer-form-render" />
+ </a>
+ <a href="">
+    <img alt="npm" src="https://img.shields.io/github/last-commit/muwoo/kaer-form-render" />
+ </a>
+ <a href="">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/muwoo/kaer-form-render"></a>
+ </a>
+ <a href="">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/stars/muwoo/kaer-form-render?style=social"></a>
+ </a>
+</p>
+
 Base on Vue 3.x, Quickly generates custom form configuration interfaces using JSON Schema.
 ## examples
 
