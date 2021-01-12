@@ -22,7 +22,10 @@ Base on Vue 3.x, Quickly generates custom form configuration interfaces using JS
 
 [form-render live Demo](https://muwoo.github.io/kaer-form-render/)
 
-![](./public/imgs/img.png)
+![](https://user-images.githubusercontent.com/21073039/104286930-b033c880-54f0-11eb-9bc1-7d9a18ea3044.png)
+
+![image](https://user-images.githubusercontent.com/21073039/104287066-e2ddc100-54f0-11eb-97bf-05db477f2284.png)
+
 
 ## install
 ```shell
