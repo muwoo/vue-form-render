@@ -1,6 +1,6 @@
 /* eslint-disable */
 import {toRefs, watch, reactive} from 'vue';
-import { resolve, clone } from './utils/index';
+import { resolve, clone, getValidateList } from './utils/index';
 import {widgets, mapping} from './widgets';
 
 export default {
@@ -19,6 +19,7 @@ export default {
     emit('on-change', data);
     watch(formData,() => {
       data = resolve(props.schema, formData.value);
+      emit('on-validate', getValidateList(data, props.schema));
     });
 
     watch(schema.value,() => {

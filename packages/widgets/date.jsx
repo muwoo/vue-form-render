@@ -48,6 +48,7 @@ export default {
     value: [String, Number, Boolean, Object],
     disabled: Boolean,
     readOnly: Boolean,
+    invalidText: String
   },
   setup(props) {
     let {
@@ -64,7 +65,12 @@ export default {
 
       return (
         <div className="form-item">
-          <div className="form-item-title">{props.schema.title}</div>
+          <div className="form-item-title">
+            {props.schema.title}
+            <span style={{
+              color: props.invalidText && '#ff4d4f'
+            }}>{props.invalidText && props.invalidText}</span>
+          </div>
           <Picker
             {...options}
             value={value.value ? moment(value.value, options.format) : null}

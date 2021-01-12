@@ -1,3 +1,7 @@
+import {getValidateList} from './validate';
+import isLength from 'validator/lib/isLength';
+import {isEmail, isUrl, baseGet, hasRepeat, isEmptyObject} from './utils';
+
 // 判断schema的值是是否是“函数”
 // JSON无法使用函数值的参数，所以使用"{{...}}"来标记为函数，也可使用@标记，不推荐。
 function isFunction(func) {
@@ -161,8 +165,155 @@ function getSubSchemas(schema = {}) {
   }));
 }
 
+const validate = ({name, schema, value, required = []}) => {
+  const {
+    type,
+    'ui:options': options,
+    message,
+    maxLength,
+    minLength,
+    format,
+    pattern,
+    maximum,
+    minimum,
+    maxItems,
+    minItems,
+    uniqueItems,
+  } = schema;
+  // schema 里面没有内容的，直接退出
+  if (isEmptyObject(schema)) {
+    return false;
+  }
+  if (required.indexOf(name) >= 0 && (!value || !value.length)) {
+    return '不能为空'
+  }
+  // 正则
+  const usePattern = pattern && ['string', 'number'].indexOf(type) > -1;
+  // 字符串
+  if (type === 'string') {
+    // TODO： 考虑了下，目前先允许 string 类的填入值是 undefined null 和 数字，校验的时候先转成 string
+    let _finalValue = value;
+    if (typeof value !== 'string') {
+      if (value === null || value === undefined) {
+        _finalValue = '';
+      } else {
+        _finalValue = String(value);
+        // return '内容不是字符串，请修改'; // 这里可以强制提示，但旧项目有修改成本
+      }
+    }
+
+    const noTrim = options && options.noTrim; // 配置项，不需要trim
+    const trimedValue = _finalValue.trim();
+    if (trimedValue !== _finalValue && !noTrim) {
+      return (message && message.trim) || `输入的内容有多余空格`;
+    }
+    if (_finalValue && maxLength) {
+      if (!isLength(_finalValue, 0, parseInt(maxLength, 10))) {
+        return (message && message.maxLength) || `长度不能大于 ${maxLength}`;
+      }
+    }
+    if (_finalValue && (minLength || minLength === 0)) {
+      if (
+        !_finalValue ||
+        !isLength(_finalValue, parseInt(minLength, 10), undefined)
+      ) {
+        return (message && message.minLength) || `长度不能小于 ${minLength}`;
+      }
+    }
+    if (format === 'color') {
+      if (value === '') return '请填写正确的颜色格式';
+    }
+    if (format === 'image') {
+      const imagePattern =
+        '([/|.|w|s|-])*.(?:jpg|gif|png|bmp|apng|webp|jpeg|json)';
+      // image 里也可以填写网络链接
+      const _isUrl = isUrl(value);
+      const _isImg = new RegExp(imagePattern).test(value);
+      if (usePattern) {
+        // ignore
+      } else if (value && !_isUrl && !_isImg) {
+        return (message && message.image) || '请输入正确的图片格式';
+      }
+    }
+
+    if (format === 'url') {
+      if (usePattern) {
+        // ignore
+      } else if (value && !isUrl(value)) {
+        return (message && message.url) || '请输入正确的url格式';
+      }
+    }
+    if (format === 'email') {
+      if (usePattern) {
+        // ignore
+      } else if (value && !isEmail(value)) {
+        return (message && message.email) || '请输入正确的email格式';
+      }
+    }
+  }
+
+  // 数字相关校验
+  if (type === 'number') {
+    if (typeof value !== 'number') {
+      return '请填写数字';
+    }
+    if (maximum && parseFloat(value, 10) > maximum) {
+      return (message && message.maximum) || `数值不能大于 ${maximum}`;
+    }
+    if ((minimum || minimum === 0) && parseFloat(value, 10) < minimum) {
+      return (message && message.minimum) || `数值不能小于 ${minimum}`;
+    }
+  }
+
+  // 正则只对数字和字符串有效果
+  // value 有值的时候才去算 pattern。从场景反馈还是这样好
+  if (value && usePattern && !new RegExp(pattern).test(value)) {
+    return (message && message.pattern) || '格式不匹配';
+  }
+
+  // 数组项目相关校验
+  if (type === 'array') {
+    if (maxItems && value && value.length > maxItems) {
+      return (message && message.maxItems) || `数组长度不能大于 ${maxItems}`;
+    }
+
+    if (
+      (minItems || minItems === 0) &&
+      value &&
+      value.length < minItems
+    ) {
+      return (message && message.minItems) || `数组长度不能小于 ${minItems}`;
+    }
+
+    if (uniqueItems && Array.isArray(value) && value.length > 1) {
+      if (typeof uniqueItems === 'boolean') {
+        if (hasRepeat(value)) {
+          return '存在重复元素';
+        }
+      }
+      if (typeof uniqueItems === 'string') {
+        try {
+          const nameList = value.map(item => baseGet(item, uniqueItems));
+          // 只考虑非object的情况
+          const isRepeat = nameList.find(
+            (x, index) => nameList.indexOf(x) !== index
+          );
+          if (isRepeat) {
+            return uniqueItems + ' 的值存在重复的';
+          }
+        } catch (e) {
+          // ignore
+        }
+      }
+    }
+  }
+  return ''
+}
+
 export {
   resolve,
   getSubSchemas,
   clone,
+  getValidateList,
+  validate,
 };

@@ -2,7 +2,7 @@ import { PlusOutlined, BarsOutlined, DeleteOutlined } from '@ant-design/icons-vu
 import Draggable from "vuedraggable";
 import XLSX from 'xlsx';
 
-import {getSubSchemas, resolve, clone} from '../utils';
+import {getSubSchemas, resolve, clone, validate} from '../utils';
 import input from './input';
 import color from './color';
 import date from './date';
@@ -37,8 +37,15 @@ const index = {
                 const schema = childrenSchemas[index].schema;
                 const Field = widgets[mapping[`${schema.type}${schema.format ? `:${schema.format}` : ''}`]];
                 if (!Field) return null;
+                const invalidText = validate({
+                  name,
+                  schema,
+                  value: props.value[name],
+                  required: props.schema.required
+                });
                 return (
                   <Field
+                    invalidText={invalidText}
                     value={props.value[name]}
                     schema={schema}
                     name={name}
@@ -67,6 +74,7 @@ const array = {
     value: [String, Number, Boolean, Object],
     onChange: Function,
     name: String,
+    invalidText: Boolean,
   },
   setup(props) {
     const parseExcel = (file) => {
@@ -147,6 +155,9 @@ const array = {
             props.schema.title && (
               <div className="title">
                 {props.schema.title}
+                <span style={{
+                  color: props.invalidText && '#ff4d4f'
+                }}>{props.invalidText && props.invalidText}</span>
                 <div className="flex align-center">
                   <a-upload
                     accept=".xlsx"

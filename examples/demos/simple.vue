@@ -3,6 +3,7 @@
     <Demo
         :schemaProps="schema"
         :formDataProps="formData"
+        :validate="onValidate"
     />
   </div>
 </template>
@@ -31,7 +32,23 @@ export default {
             enum: ['a', 'b', 'c'],
             enumNames: ['选项1', '选项2', '选项3'],
           },
+          object: {
+            type: 'object',
+            title: 'object',
+            properties: {
+              string2: {
+                title: '字符串',
+                type: 'string'
+              },
+            },
+            "required": [
+              "string2"
+            ]
+          }
         },
+        "required": [
+          "string"
+        ]
       },
       formData: {
       },
@@ -41,14 +58,14 @@ export default {
       state.formData = v;
       // console.log(v);
     }
-    const validate = (v) => {
+    const onValidate = (v) => {
       console.log(v);
     }
 
     return {
       ...toRefs(state),
       change,
-      validate,
+      onValidate,
     }
   },
   components: {

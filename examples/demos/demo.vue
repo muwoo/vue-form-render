@@ -6,7 +6,7 @@
           :schema="schema"
           :formData="formData"
           @on-change="change"
-          @validate="validate"
+          @on-validate="validate"
           :options="options"
       />
       <div v-else>

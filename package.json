@@ -1,6 +1,6 @@
 {
   "name": "kaer-form-render",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:example": "vue-cli-service build",
@@ -29,6 +29,7 @@
     "ant-design-vue": "^2.0.0-rc.7",
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
+    "validator": "^13.5.2",
     "vue": "^3.0.0",
     "vuedraggable": "^4.0.1",
     "wangeditor": "^4.6.2",
