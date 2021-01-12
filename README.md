@@ -4,23 +4,23 @@
 
 <p align="center">
  <a href="https://www.npmjs.com/package/kaer-form-render">
-    <img alt="npm" src="https://img.shields.io/github/package-json/v/muwoo/kaer-form-render" />
+    <img alt="npm" src="https://img.shields.io/github/package-json/v/muwoo/vue-form-render" />
  </a>
  <a href="">
-    <img alt="npm" src="https://img.shields.io/github/last-commit/muwoo/kaer-form-render" />
+    <img alt="npm" src="https://img.shields.io/github/last-commit/muwoo/vue-form-render" />
  </a>
  <a href="">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/muwoo/kaer-form-render"></a>
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/muwoo/vue-form-render"></a>
  </a>
  <a href="">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/stars/muwoo/kaer-form-render?style=social"></a>
+    <img alt="GitHub repo size" src="https://img.shields.io/github/stars/muwoo/vue-form-render?style=social"></a>
  </a>
 </p>
 
 Base on Vue 3.x, Quickly generates custom form configuration interfaces using JSON Schema.
 ## examples
 
-[form-render live Demo](https://muwoo.github.io/kaer-form-render/)
+[form-render live Demo](https://muwoo.github.io/vue-form-render/)
 
 ![](https://user-images.githubusercontent.com/21073039/104287172-086aca80-54f1-11eb-877a-45e7bcf0a909.gif)
 
