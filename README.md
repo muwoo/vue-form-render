@@ -114,6 +114,22 @@ export default {
 ## Documentation
 For extensive documentation see the examples folder or read it on [form-render](https://x-render.gitee.io/form-render/guide/design)
 
+
+## API
+
+### Props
+|  Property   | Description  | Type | Default|
+|  ----  | ----  | ---- | ---- |
+| schame  | JSON Schema | object | -- |
+| formData  | formData | object | -- |
+
+### Events
+
+|  Events Name	   | Description  | Arguments | 
+|  ----  | ----  | ---- |
+| on-change  | Callback function for user to trigger form update | function(value: formData) |
+| on-validate  | Validation callback function for user to trigger form update | function(value: validates) |
+
 ## Special thanks
 
 this Project inspiration from [form-render](https://x-render.gitee.io/form-render/guide/design) 
