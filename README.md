@@ -130,6 +130,11 @@ For extensive documentation see the examples folder or read it on [form-render](
 | on-change  | Callback function for user to trigger form update | function(value: formData) |
 | on-validate  | Validation callback function for user to trigger form update | function(value: validates) |
 
+## Contribution
+If you like this project, you can support it by contributing. If you find a bug, please let me know, applying a pull request is welcome. This project needs your support. You can fix typos, add new examples, or build with me new features.
+
+Support this project by giving it a Star ⭐
+
 ## Special thanks
 
 this Project inspiration from [form-render](https://x-render.gitee.io/form-render/guide/design) 
