@@ -1,4 +1,6 @@
 <h1 align= "center">
+    <img alt="logo" src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" />
+    
     vue-form-render
 </h1>
 
