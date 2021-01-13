@@ -1,9 +1,7 @@
-<h1 align= "center">
-    <img alt="logo" src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" />
     
-    vue-form-render
-</h1>
-
+<img align= "center" alt="logo" src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" />
+    
+<h1 align= "center">vue-form-render</h1>
 <p align="center">
  <a href="https://www.npmjs.com/package/kaer-form-render">
     <img alt="npm" src="https://img.shields.io/github/package-json/v/muwoo/vue-form-render" />
