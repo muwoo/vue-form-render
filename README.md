@@ -1,5 +1,5 @@
 <p align="center">    
-<img align= "center" alt="logo" src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" />
+<img width=350 align= "center" alt="logo" src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" />
 </p>   
 <h1 align= "center">vue-form-render</h1>
 <p align="center">
