@@ -33,7 +33,7 @@ npm i kaer-form-render --save
 ```
 `kear form render` depend on [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/)
 to render from items.so before we use `kaer form render` we need to install `Ant Design of Vue` and import it to our project:
-```vue
+```js
 import { createApp } from 'vue'
 import App from './App.vue'
 
@@ -141,4 +141,5 @@ this Project inspiration from [form-render](https://x-render.gitee.io/form-rende
 but There is no similar framework for Vue 3.x
 
 
-
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/muwoo/vue-form-render/blob/master/LICENSE) file for details.
