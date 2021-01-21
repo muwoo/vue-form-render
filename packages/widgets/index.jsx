@@ -1,8 +1,8 @@
 import Draggable from "vuedraggable";
 import XLSX from 'xlsx';
-
 import {getSubSchemas, resolve, clone, validate} from '../utils';
 import input from './input';
+import url from './url'
 import color from './color';
 import date from './date';
 import image from './image';
@@ -167,7 +167,8 @@ const array = {
                     <span className="upload-excel">导入 excel</span>
                   </a-upload>
                   <span className="upload-excel" onClick={exportExcel}>下载 excel</span>
-                  <PlusOutlined
+                  {props.schema.maxLength && props.schema.maxLength <= props.value.length ? null :
+                   <PlusOutlined
                     onClick={() => {
                       const value = [
                         ...props.value,
@@ -175,7 +176,7 @@ const array = {
                       value.push(value[0] || resolve(childrenSchemas[0].schema));
                       props.onChange(props.name, value);
                     }}
-                  />
+                  />}
                 </div>
 
               </div>
@@ -206,11 +207,16 @@ const array = {
                       size="small"
                       v-slots={{
                         title: () => <BarsOutlined class="handle" />,
-                        extra: () => <DeleteOutlined onClick={() => {
-                          const value = clone(props.value);
-                          value.splice(index, 1);
-                          props.onChange(props.name, value);
-                        }}/>
+                        extra: () => (
+                          props.schema.minLength && props.schema.minLength >= props.value.length ? null : 
+                          <DeleteOutlined 
+                            onClick={() => {
+                              const value = clone(props.value);
+                              value.splice(index, 1);
+                              props.onChange(props.name, value);
+                            }}
+                          />
+                        )
                       }}
                     >
                       <Field
@@ -254,6 +260,8 @@ const mapping = {
   multiSelect: 'multiSelect',
   multiCheckbox: 'multiCheckbox',
   'range:dateTime': 'range',
+  'string:email': 'input',
+  'string:url': 'url',
   'string:color': 'color',
   'string:image': 'image',
   'string:date': 'date',
@@ -263,6 +271,7 @@ const mapping = {
 const widgets = {
   input,
   map: index,
+  url,
   color,
   date,
   array,

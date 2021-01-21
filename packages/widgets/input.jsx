@@ -1,4 +1,17 @@
 import {toRefs} from 'vue';
+import { isUrl } from '../utils/utils';
+
+const TestNode = ({ value }) => {
+  const useUrl = isUrl(value);
+  if (useUrl) {
+    return (
+      <a target="_blank" href={value}>
+        测试链接
+      </a>
+    );
+  }
+  return <div>测试链接</div>;
+};
 
 const Select = ({value, handleChange, props, type}) => {
   if (type === 'radio') {
@@ -57,7 +70,7 @@ export default {
       readOnly,
     } = toRefs(props);
     const { format = 'text', maxLength, 'ui:options': options } = schema.value;
-    const type = ['image', 'email'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
+    const type = ['image', 'email', 'url'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
 
     const handleChange = v => {
       onChange.value(name.value, v);
@@ -96,6 +109,11 @@ export default {
         suffix,
       };
 
+      let addonAfter = _options.addonAfter;
+      if (format === 'url' && !addonAfter) {
+        addonAfter = <TestNode value={props.value} />
+      }
+
       return (
         <div className="form-item">
           <div className="form-item-title">
@@ -119,6 +137,7 @@ export default {
                 type={type}
                 disabled={disabled.value || readOnly.value}
                 onInput={e => handleChange(e.target.value)}
+                addonAfter={addonAfter}
               />
             )
           }
