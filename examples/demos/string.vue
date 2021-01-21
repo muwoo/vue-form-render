@@ -27,6 +27,16 @@ export default {
             "type": "string",
             "format": "textarea"
           },
+          "url": {
+            "title": "URL",
+            "type": "string",
+            "format": "url",
+          },
+          "email": {
+            "title": "邮箱",
+            "type": "string",
+            "format": "email",
+          },
           "color": {
             "title": "颜色选择",
             "type": "string",
