@@ -261,6 +261,7 @@ const mapping = {
   multiCheckbox: 'multiCheckbox',
   'range:dateTime': 'range',
   'string:email': 'input',
+  'string:textarea': 'input',
   'string:url': 'url',
   'string:color': 'color',
   'string:image': 'image',
