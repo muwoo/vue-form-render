@@ -1,3 +1,4 @@
+import { Input } from 'ant-design-vue';
 import {toRefs} from 'vue';
 import { isUrl } from '../utils/utils';
 
@@ -113,7 +114,9 @@ export default {
       if (format === 'url' && !addonAfter) {
         addonAfter = <TestNode value={props.value} />
       }
-
+      // 解决type为textarea不生效问题
+      const KaerInput = type === 'textarea' ? Input.TextArea : Input
+      
       return (
         <div className="form-item">
           <div className="form-item-title">
@@ -131,7 +134,7 @@ export default {
                 handleChange={handleChange}
               />
             ) : (
-              <a-input
+              <KaerInput
                 {...config}
                 value={value.value}
                 type={type}
