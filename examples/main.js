@@ -15,7 +15,8 @@ import {
   Slider,
   Switch,
   Popover,
-  Upload
+  Upload,
+  Collapse
 } from 'ant-design-vue';
 import {
   FileImageOutlined,
@@ -23,6 +24,7 @@ import {
   PlusOutlined,
   BarsOutlined,
   DeleteOutlined,
+  DragOutlined,
 } from '@ant-design/icons-vue';
 
 import 'ant-design-vue/dist/antd.css';
@@ -42,12 +44,14 @@ app.use(Slider);
 app.use(Switch);
 app.use(Popover);
 app.use(Upload);
+app.use(Collapse);
 
 app.component('FileImageOutlined', FileImageOutlined)
 app.component('UploadOutlined', UploadOutlined)
 app.component('PlusOutlined', PlusOutlined)
 app.component('BarsOutlined', BarsOutlined)
 app.component('DeleteOutlined', DeleteOutlined)
+app.component('DragOutlined', DragOutlined)
 
 app.use(router);
 app.mount('#app');

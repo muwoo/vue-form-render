@@ -202,41 +202,40 @@ const array = {
                   const Field = widgets[mapping[`${schema.type}${schema.format ? `:${schema.format}` : ''}`]];
                   if (!Field) return null;
                   return (
-                    <a-card
-                      hoverable
-                      size="small"
-                      v-slots={{
-                        title: () => <BarsOutlined class="handle" />,
-                        extra: () => (
-                          props.schema.minLength && props.schema.minLength >= props.value.length ? null : 
-                          <DeleteOutlined 
-                            onClick={() => {
-                              const value = clone(props.value);
-                              value.splice(index, 1);
-                              props.onChange(props.name, value);
-                            }}
-                          />
-                        )
-                      }}
-                    >
-                      <Field
-                        className="flex1"
-                        value={v}
-                        schema={schema}
-                        name={`${index}`}
-                        onChange={(key, val) => {
-                          const value = [
-                            ...props.value,
-                          ];
-                          value[key] = val;
-                          props.onChange(props.name, value);
+                    <a-collapse>
+                      <a-collapse-panel
+                        key="1"
+                        v-slots={{
+                          header: () => <DragOutlined class="handle" />,
+                          extra: () => (
+                            props.schema.minLength && props.schema.minLength >= props.value.length ? null :
+                              <DeleteOutlined
+                                onClick={() => {
+                                  const value = clone(props.value);
+                                  value.splice(index, 1);
+                                  props.onChange(props.name, value);
+                                }}
+                              />
+                          )
                         }}
-                      />
-
-                    </a-card>
-
-                  );
-                },
+                      >
+                        <Field
+                          className="flex1"
+                          value={v}
+                          schema={schema}
+                          name={`${index}`}
+                          onChange={(key, val) => {
+                            const value = [
+                              ...props.value,
+                            ];
+                            value[key] = val;
+                            props.onChange(props.name, value);
+                          }}
+                        />
+                      </a-collapse-panel>
+                    </a-collapse>
+                  )
+                }
               }}
             >
             </Draggable>
