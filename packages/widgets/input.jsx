@@ -1,4 +1,3 @@
-import { Input } from 'ant-design-vue';
 import {toRefs} from 'vue';
 import { isUrl } from '../utils/utils';
 
@@ -71,7 +70,6 @@ export default {
       readOnly,
     } = toRefs(props);
     const { format = 'text', maxLength, 'ui:options': options } = schema.value;
-    const type = ['image', 'email', 'url'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
 
     const handleChange = v => {
       onChange.value(name.value, v);
@@ -81,6 +79,8 @@ export default {
     delete _options.noTrim;
 
     return () => {
+      const type = ['image', 'email', 'url'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
+
       let suffix = undefined;
       try {
         let _value = value.value || '';
@@ -114,9 +114,6 @@ export default {
       if (format === 'url' && !addonAfter) {
         addonAfter = <TestNode value={props.value} />
       }
-      // 解决type为textarea不生效问题
-      const KaerInput = type === 'textarea' ? Input.TextArea : Input
-      
       return (
         <div className="form-item">
           <div className="form-item-title">
@@ -134,14 +131,26 @@ export default {
                 handleChange={handleChange}
               />
             ) : (
-              <KaerInput
-                {...config}
-                value={value.value}
-                type={type}
-                disabled={disabled.value || readOnly.value}
-                onInput={e => handleChange(e.target.value)}
-                addonAfter={addonAfter}
-              />
+              props.schema.format === 'textarea' ? (
+                <a-textarea
+                  {...config}
+                  value={value.value}
+                  type={type}
+                  disabled={disabled.value || readOnly.value}
+                  onInput={e => handleChange(e.target.value)}
+                  addonAfter={addonAfter}
+                />
+                ) : (
+                  <a-input
+                    {...config}
+                    value={value.value}
+                    type={type}
+                    disabled={disabled.value || readOnly.value}
+                    onInput={e => handleChange(e.target.value)}
+                    addonAfter={addonAfter}
+                  />
+                )
+
             )
           }
         </div>
