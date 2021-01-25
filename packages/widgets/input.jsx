@@ -69,17 +69,18 @@ export default {
       disabled,
       readOnly,
     } = toRefs(props);
-    const { format = 'text', maxLength, 'ui:options': options } = schema.value;
 
     const handleChange = v => {
       onChange.value(name.value, v);
     };
 
-    const _options = { ...options };
-    delete _options.noTrim;
-
     return () => {
+      const { format = 'text', maxLength, 'ui:options': options } = schema.value;
+
       const type = ['image', 'email', 'url'].indexOf(format) > -1 ? 'text' : format; // TODO: 这里要是添加新的input类型，注意是一个坑啊，每次不想用html的默认都要补上
+
+      const _options = { ...options };
+      delete _options.noTrim;
 
       let suffix = undefined;
       try {
@@ -131,7 +132,7 @@ export default {
                 handleChange={handleChange}
               />
             ) : (
-              props.schema.format === 'textarea' ? (
+              type === 'textarea' ? (
                 <a-textarea
                   {...config}
                   value={value.value}
