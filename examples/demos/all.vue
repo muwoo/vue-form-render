@@ -206,7 +206,8 @@ export default {
               "properties": {
                 "input1": {
                   "title": "简单输入框",
-                  "type": "string"
+                  "type": "string",
+                  'ui:hidden': "{{rootValue.selet1 !== 'b'}}"
                 },
                 "selet1": {
                   "title": "单选",

@@ -3,6 +3,7 @@
     <div class="menu">
       <router-link to="simple">基本</router-link>
       <router-link to="all">所有组件</router-link>
+      <router-link to="links">联动</router-link>
       <router-link to="string">string</router-link>
       <router-link to="multi">multi</router-link>
       <router-link to="array">array</router-link>

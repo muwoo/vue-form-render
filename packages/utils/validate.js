@@ -1,4 +1,4 @@
-import {validate} from './index';
+import {validate, convertValue} from './index';
 
 // 值是是否为空
 const isEmptyValue = (value, schema) => {
@@ -44,8 +44,10 @@ export const getValidateList = (val = {}, schema = {}, formData) => {
   if (required && required.length > 0) {
     required.forEach(key => {
       const schema = (properties && properties[key]) || {};
+      const hidden = schema['ui:hidden'];
       const itemValue = val && val[key];
-      if (isEmptyValue(itemValue, schema)) {
+      const _hidden = convertValue(hidden, _formData, val);
+      if (isEmptyValue(itemValue, schema) && !_hidden) {
         checkList.push(key);
       }
     });

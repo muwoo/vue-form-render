@@ -25,7 +25,6 @@ export default {
     const upload = ({file}) => {
       try {
         const imgSrc = file.response.data[0];
-        console.log(file.response.data[0]);
         onChange.value(name.value, imgSrc);
       } catch (e) {
         // ignore

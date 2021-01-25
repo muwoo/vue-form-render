@@ -5,6 +5,7 @@ import Multi from '../demos/multi';
 import All from '../demos/all';
 import Array from '../demos/array'
 import RichText from '../demos/richText'
+import Links from '../demos/links'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -18,6 +19,11 @@ const routes = [
     path: '/all',
     name: 'all',
     component: All
+  },
+  {
+    path: '/links',
+    name: 'links',
+    component: Links
   },
   {
     path: '/object',

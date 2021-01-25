@@ -1,6 +1,6 @@
 import Draggable from "vuedraggable";
 import XLSX from 'xlsx';
-import {getSubSchemas, resolve, clone, validate} from '../utils';
+import {getSubSchemas, resolve, clone, validate, convertValue} from '../utils';
 import input from './input';
 import url from './url'
 import color from './color';
@@ -36,6 +36,7 @@ const index = {
                 const schema = childrenSchemas[index].schema;
                 const Field = widgets[mapping[`${schema.type}${schema.format ? `:${schema.format}` : ''}`]];
                 if (!Field) return null;
+                if (convertValue(schema['ui:hidden'], props.value[name], props.value)) return null;
                 const invalidText = validate({
                   name,
                   schema,

@@ -310,10 +310,40 @@ const validate = ({name, schema, value, required = []}) => {
   return ''
 }
 
+
+function safeEval(code) {
+  return Function(`"use strict"; ${code}`)();
+}
+
+const evaluateString = (string, formData, rootValue) =>
+  safeEval(`
+  const rootValue =${JSON.stringify(rootValue)};
+  const formData = ${JSON.stringify(formData)};
+  return (${string})
+  `);
+
+const convertValue = (item, formData, rootValue) => {
+  if (typeof item === 'function') {
+    return item(formData, rootValue);
+  } else if (typeof item === 'string' && isFunction(item) !== false) {
+    const _item = isFunction(item);
+    try {
+      return evaluateString(_item, formData, rootValue);
+    } catch (error) {
+      console.error(error.message);
+      console.error(`happen at ${item}`);
+      return item;
+    }
+  }
+  return item;
+};
+
 export {
   resolve,
   getSubSchemas,
   clone,
   getValidateList,
   validate,
+  evaluateString,
+  convertValue,
 };
