@@ -13,10 +13,10 @@ const TestNode = ({ value }) => {
   return <div>测试链接</div>;
 };
 
-const Select = ({value, handleChange, props, type}) => {
+const Select = ({value, handleChange, props, type, options}) => {
   if (type === 'radio') {
     return (
-      <a-radio-group name="radioGroup" onChange={(e) => handleChange(e.target.value)} value={value}>
+      <a-radio-group {...options} name="radioGroup" onChange={(e) => handleChange(e.target.value)} value={value}>
         {
           props.schema.enum.map((item, index) => (
             <a-radio
@@ -34,6 +34,7 @@ const Select = ({value, handleChange, props, type}) => {
     <a-select
       value={value}
       onChange={handleChange}
+      {...options}
     >
       {
         props.schema.enum.map((item, index) => (
@@ -66,8 +67,6 @@ export default {
       onChange,
       name,
       value,
-      disabled,
-      readOnly,
     } = toRefs(props);
 
     const handleChange = v => {
@@ -130,6 +129,7 @@ export default {
                 value={value.value}
                 props={props}
                 handleChange={handleChange}
+                options={_options}
               />
             ) : (
               type === 'textarea' ? (
@@ -137,7 +137,7 @@ export default {
                   {...config}
                   value={value.value}
                   type={type}
-                  disabled={disabled.value || readOnly.value}
+                  {..._options}
                   onInput={e => handleChange(e.target.value)}
                   addonAfter={addonAfter}
                 />
@@ -146,7 +146,7 @@ export default {
                     {...config}
                     value={value.value}
                     type={type}
-                    disabled={disabled.value || readOnly.value}
+                    {..._options}
                     onInput={e => handleChange(e.target.value)}
                     addonAfter={addonAfter}
                   />

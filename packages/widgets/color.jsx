@@ -38,8 +38,8 @@ export default {
               onInput={handleChange}
             />
             <a-input
+              onInput={handleChange}
               className="flex1"
-              disabled={true}
               value={value.value}
               type="text"
             />

@@ -1,6 +1,6 @@
 {
   "name": "kaer-form-render",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:example": "vue-cli-service build",
