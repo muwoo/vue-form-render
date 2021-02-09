@@ -5,6 +5,7 @@ const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 module.exports = {
   // 修改 src 为 examples
   publicPath: "./",
+  outputDir: "docs/docs/.vuepress/public/dist",
   pages: {
     index: {
       entry: 'examples/main.js',
