@@ -65,9 +65,9 @@ app.mount('#app');
 import {reactive, toRefs} from 'vue';
 
 // render index
-import FormRender from 'kaer-form-render';
+import FormRender from 'vue3-form-render';
 // form render style
-import 'kaer-form-render/lib/kaer-form-render.css';
+import 'vue3-form-render/lib/vue3-form-render.css';
 
 export default {
   name: 'App',
