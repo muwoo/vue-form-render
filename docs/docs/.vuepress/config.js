@@ -6,7 +6,7 @@ module.exports = {
     logo: 'https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png',
     nav: [
       { text: '教程', link: '/guide/' },
-      { text: '示例', link: 'https://muwoo.github.io/vue-form-render/#/demo/' },
+      { text: '示例', link: 'https://muwoo.github.io/vue-form-render/dist/#/demo/' },
     ],
     sidebar: [
       {
