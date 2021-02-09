@@ -29,7 +29,7 @@ Base on Vue 3.x, Quickly generates custom form configuration interfaces using JS
 
 ## install
 ```shell
-npm i kaer-form-render --save
+npm i vue3-form-render --save
 ```
 `kear form render` depend on [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/)
 to render from items.so before we use `kaer form render` we need to install `Ant Design of Vue` and import it to our project:
@@ -63,9 +63,9 @@ app.mount('#app');
 import {reactive, toRefs} from 'vue';
 
 // render index
-import FormRender from 'kaer-form-render';
+import FormRender from 'vue3-form-render';
 // form render style
-import 'kaer-form-render/lib/kaer-form-render.css';
+import 'vue3-form-render/lib/vue3-form-render.css';
 
 export default {
   name: 'App',

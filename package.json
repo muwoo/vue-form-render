@@ -1,10 +1,10 @@
 {
   "name": "vue3-form-render",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:example": "vue-cli-service build",
-    "build": "vue-cli-service build --target lib --name kaer-form-render --dest lib packages/index.jsx",
+    "build": "vue-cli-service build --target lib --name vue3-form-render --dest lib packages/index.jsx",
     "lint": "vue-cli-service lint"
   },
   "keywords": [
