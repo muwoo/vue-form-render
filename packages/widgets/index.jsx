@@ -1,4 +1,4 @@
-import Draggable from "vuedraggable";
+import Draggable from "vue3-form-render-vuedraggable";
 import XLSX from 'xlsx';
 import {getSubSchemas, resolve, clone, validate, convertValue} from '../utils';
 import input from './input';

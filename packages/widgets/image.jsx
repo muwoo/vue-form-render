@@ -41,18 +41,22 @@ export default {
             }}>{props.invalidText && props.invalidText}</span>
           </div>
           <div className="flex align-center">
-            <a-upload
-              action="http://api.91jkys.com:8096"
-              onChange={upload}
-              showUploadList={false}
-              accept=".png,.gif,.jpg,.jpeg"
-              name="filed"
-              data={{
-                action: 'fileUpload'
-              }}
-            >
-              <a-button> <upload-outlined /></a-button>
-            </a-upload>
+            {
+              props.schema.action && <a-upload
+                action={props.schema.action}
+                onChange={upload}
+                showUploadList={false}
+                accept=".png,.gif,.jpg,.jpeg"
+                name="filed"
+                data={{
+                  action: 'fileUpload'
+                }}
+              >
+                <a-button>
+                  <upload-outlined/>
+                </a-button>
+              </a-upload>
+            }
             <a-input
               className="flex1"
               value={value.value}
