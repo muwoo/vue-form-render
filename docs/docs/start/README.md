@@ -47,7 +47,7 @@ app.use(Antd);
 app.mount('#app');
 ```
 
-然后再需要使用的组件中，即可使用`vue3 form render`:
+然后在需要使用的组件中，即可使用`vue3 form render`:
 
 ```vue
 <template>
