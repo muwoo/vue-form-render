@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>开始使用 | Vue 3.x From Render</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vue-form-render/assets/css/0.styles.6014f75e.css" as="style"><link rel="preload" href="/vue-form-render/assets/js/app.9a6a7b4f.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/2.b1234189.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/23.062d7035.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/12.5ec3a31e.js" as="script"><link rel="prefetch" href="/vue-form-render/assets/js/10.34f690df.js"><link rel="prefetch" href="/vue-form-render/assets/js/11.26b96310.js"><link rel="prefetch" href="/vue-form-render/assets/js/13.b6e96024.js"><link rel="prefetch" href="/vue-form-render/assets/js/14.844a9f8b.js"><link rel="prefetch" href="/vue-form-render/assets/js/15.227656ef.js"><link rel="prefetch" href="/vue-form-render/assets/js/16.355da039.js"><link rel="prefetch" href="/vue-form-render/assets/js/17.d615b70b.js"><link rel="prefetch" href="/vue-form-render/assets/js/18.72b16f58.js"><link rel="prefetch" href="/vue-form-render/assets/js/19.03183d4f.js"><link rel="prefetch" href="/vue-form-render/assets/js/20.d4b77d0d.js"><link rel="prefetch" href="/vue-form-render/assets/js/21.d6d60016.js"><link rel="prefetch" href="/vue-form-render/assets/js/22.30e20d3c.js"><link rel="prefetch" href="/vue-form-render/assets/js/3.67d708ca.js"><link rel="prefetch" href="/vue-form-render/assets/js/4.ec579daa.js"><link rel="prefetch" href="/vue-form-render/assets/js/5.ef56a670.js"><link rel="prefetch" href="/vue-form-render/assets/js/6.44ab948c.js"><link rel="prefetch" href="/vue-form-render/assets/js/7.aa12d0b3.js"><link rel="prefetch" href="/vue-form-render/assets/js/8.c02a77fb.js"><link rel="prefetch" href="/vue-form-render/assets/js/9.9ae3cf88.js">
+    <link rel="stylesheet" href="/vue-form-render/assets/css/0.styles.6014f75e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-form-render/" class="home-link router-link-active"><img src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" alt="Vue 3.x From Render" class="logo"> <span class="site-name can-hide">Vue 3.x From Render</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-form-render/guide/" class="nav-link">
+  教程
+</a></div><div class="nav-item"><a href="https://muwoo.github.io/vue-form-render/dist/#/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  示例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/muwoo/vue-form-render" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-form-render/guide/" class="nav-link">
+  教程
+</a></div><div class="nav-item"><a href="https://muwoo.github.io/vue-form-render/dist/#/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  示例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/muwoo/vue-form-render" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/vue-form-render/guide/" class="sidebar-link">教程</a></li><li><a href="/vue-form-render/start/" aria-current="page" class="active sidebar-link">开始使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-form-render/start/#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/vue-form-render/start/#使用" class="sidebar-link">使用</a></li><li class="sidebar-sub-header"><a href="/vue-form-render/start/#api" class="sidebar-link">API</a></li></ul></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>相关组件</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="开始使用"><a href="#开始使用" class="header-anchor">#</a> 开始使用</h1> <h2 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">npm</span> i vue3-form-render --save
+<span class="token comment"># or</span>
+<span class="token function">yarn</span> <span class="token function">add</span> vue3-form-render
+</code></pre></div><p>目前仅支持<a href="https://2x.antdv.com/docs/vue/introduce-cn/" target="_blank" rel="noopener noreferrer">Ant Design of Vue<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 组件库，由于<code>vue3 form render</code>没有内置<code>antd</code>所以我们需要手动安装：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">npm</span> i --save ant-design-vue@next
+<span class="token comment"># or</span>
+<span class="token function">yarn</span> <span class="token function">add</span> ant-design-vue@next
+</code></pre></div><h2 id="使用"><a href="#使用" class="header-anchor">#</a> 使用</h2> <p>引入 <code>Ant Design of Vue</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+
+<span class="token keyword">import</span> Antd <span class="token keyword">from</span> <span class="token string">'ant-design-vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/dist/antd.css'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// import icons</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  FileImageOutlined<span class="token punctuation">,</span>
+  UploadOutlined<span class="token punctuation">,</span>
+  PlusOutlined<span class="token punctuation">,</span>
+  BarsOutlined<span class="token punctuation">,</span>
+  DeleteOutlined<span class="token punctuation">,</span>
+  DragOutlined<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@ant-design/icons-vue'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'FileImageOutlined'</span><span class="token punctuation">,</span> FileImageOutlined<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'UploadOutlined'</span><span class="token punctuation">,</span> UploadOutlined<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'PlusOutlined'</span><span class="token punctuation">,</span> PlusOutlined<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'BarsOutlined'</span><span class="token punctuation">,</span> BarsOutlined<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'DeleteOutlined'</span><span class="token punctuation">,</span> DeleteOutlined<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'DragOutlined'</span><span class="token punctuation">,</span> DragOutlined<span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Antd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>然后再需要使用的组件中，即可使用<code>vue3 form render</code>:</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>formRender</span>
+      <span class="token attr-name">:schema</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>schema<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:formData</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>formData<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">@on-change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">@on-validate</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>validate<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span>reactive<span class="token punctuation">,</span> toRefs<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// render index</span>
+<span class="token keyword">import</span> FormRender <span class="token keyword">from</span> <span class="token string">'vue3-form-render'</span><span class="token punctuation">;</span>
+<span class="token comment">// form render style</span>
+<span class="token keyword">import</span> <span class="token string">'vue3-form-render/lib/vue3-form-render.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'App'</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      schema<span class="token operator">:</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> <span class="token string">'object'</span><span class="token punctuation">,</span>
+        properties<span class="token operator">:</span> <span class="token punctuation">{</span>
+          string<span class="token operator">:</span> <span class="token punctuation">{</span>
+            title<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+            type<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+            maxLength<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+            <span class="token string">'ui:options'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              placeholder<span class="token operator">:</span> <span class="token string">'enter more than 4 characters'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      formData<span class="token operator">:</span> <span class="token punctuation">{</span>
+        string<span class="token operator">:</span> <span class="token string">'aaa'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">change</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>formData <span class="token operator">=</span> v<span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">validate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token function">toRefs</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      change<span class="token punctuation">,</span>
+      validate<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
+    FormRender<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><iframe src="/vue-form-render/dist/#/docs/demo" style="border:none;width:100%;height:140px;"></iframe> <h2 id="api"><a href="#api" class="header-anchor">#</a> API</h2> <h3 id="props"><a href="#props" class="header-anchor">#</a> Props</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th></tr></thead> <tbody><tr><td>schame</td> <td>JSON Schema</td> <td>object</td> <td>--</td></tr> <tr><td>formData</td> <td>表单的数据</td> <td>object</td> <td>--</td></tr></tbody></table> <h3 id="events"><a href="#events" class="header-anchor">#</a> Events</h3> <table><thead><tr><th>事件名</th> <th>说明</th> <th>回调函数</th></tr></thead> <tbody><tr><td>on-change</td> <td>用户触发表单更新的回调函数</td> <td>function(value: formData)</td></tr> <tr><td>on-validate</td> <td>用户触发表单更新的校验回调函数</td> <td>function(value: validates)</td></tr></tbody></table></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/muwoo/vue-form-render/edit/master/start/README.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-form-render/guide/" class="prev">
+        教程
+      </a></span> <span class="next"><a href="/vue-form-render/component/string.html">
+        string
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-form-render/assets/js/app.9a6a7b4f.js" defer></script><script src="/vue-form-render/assets/js/2.b1234189.js" defer></script><script src="/vue-form-render/assets/js/23.062d7035.js" defer></script><script src="/vue-form-render/assets/js/12.5ec3a31e.js" defer></script>
+  </body>
+</html>

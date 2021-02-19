@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>array | Vue 3.x From Render</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vue-form-render/assets/css/0.styles.6014f75e.css" as="style"><link rel="preload" href="/vue-form-render/assets/js/app.9a6a7b4f.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/2.b1234189.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/16.355da039.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/3.67d708ca.js" as="script"><link rel="preload" href="/vue-form-render/assets/js/5.ef56a670.js" as="script"><link rel="prefetch" href="/vue-form-render/assets/js/10.34f690df.js"><link rel="prefetch" href="/vue-form-render/assets/js/11.26b96310.js"><link rel="prefetch" href="/vue-form-render/assets/js/12.5ec3a31e.js"><link rel="prefetch" href="/vue-form-render/assets/js/13.b6e96024.js"><link rel="prefetch" href="/vue-form-render/assets/js/14.844a9f8b.js"><link rel="prefetch" href="/vue-form-render/assets/js/15.227656ef.js"><link rel="prefetch" href="/vue-form-render/assets/js/17.d615b70b.js"><link rel="prefetch" href="/vue-form-render/assets/js/18.72b16f58.js"><link rel="prefetch" href="/vue-form-render/assets/js/19.03183d4f.js"><link rel="prefetch" href="/vue-form-render/assets/js/20.d4b77d0d.js"><link rel="prefetch" href="/vue-form-render/assets/js/21.d6d60016.js"><link rel="prefetch" href="/vue-form-render/assets/js/22.30e20d3c.js"><link rel="prefetch" href="/vue-form-render/assets/js/23.062d7035.js"><link rel="prefetch" href="/vue-form-render/assets/js/4.ec579daa.js"><link rel="prefetch" href="/vue-form-render/assets/js/6.44ab948c.js"><link rel="prefetch" href="/vue-form-render/assets/js/7.aa12d0b3.js"><link rel="prefetch" href="/vue-form-render/assets/js/8.c02a77fb.js"><link rel="prefetch" href="/vue-form-render/assets/js/9.9ae3cf88.js">
+    <link rel="stylesheet" href="/vue-form-render/assets/css/0.styles.6014f75e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-form-render/" class="home-link router-link-active"><img src="https://user-images.githubusercontent.com/21073039/104408849-ef6d2280-559f-11eb-93e4-fed00748e4b6.png" alt="Vue 3.x From Render" class="logo"> <span class="site-name can-hide">Vue 3.x From Render</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-form-render/guide/" class="nav-link">
+  教程
+</a></div><div class="nav-item"><a href="https://muwoo.github.io/vue-form-render/dist/#/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  示例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/muwoo/vue-form-render" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-form-render/guide/" class="nav-link">
+  教程
+</a></div><div class="nav-item"><a href="https://muwoo.github.io/vue-form-render/dist/#/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  示例
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/muwoo/vue-form-render" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/vue-form-render/guide/" class="sidebar-link">教程</a></li><li><a href="/vue-form-render/start/" class="sidebar-link">开始使用</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>相关组件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-form-render/component/string.html" class="sidebar-link">string</a></li><li><a href="/vue-form-render/component/number.html" class="sidebar-link">number</a></li><li><a href="/vue-form-render/component/boolean.html" class="sidebar-link">boolean</a></li><li><a href="/vue-form-render/component/array.html" aria-current="page" class="active sidebar-link">array</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vue-form-render/component/object.html" class="sidebar-link">object</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="array"><a href="#array" class="header-anchor">#</a> array</h3> <h3 id="multiselect"><a href="#multiselect" class="header-anchor">#</a> multiSelect</h3> <p>多选框，可以通过设置<code>ui:widget</code> 来指定具体的 UI 交互</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;多选&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;下拉多选&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;array&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;string&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;enum&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;B&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;D&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;enumNames&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;杭州&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;武汉&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;湖州&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;贵阳&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;ui:widget&quot;</span><span class="token operator">:</span> <span class="token string">&quot;multiSelect&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;多选&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;checkbox&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;array&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;string&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;enum&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;B&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;D&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;enumNames&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;杭州&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;武汉&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;湖州&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;贵阳&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div id="string0" style="height:220px;overflow:hidden;"><iframe src="/vue-form-render/dist/#/docs/array" style="border:none;width:100%;height:1000px;"></iframe></div> <h3 id="list"><a href="#list" class="header-anchor">#</a> list</h3> <p>支持 导入 和 导出 <code>excel</code> 文件。可以先导出一个模板，再通过修改模板 excel 后上传。对于一些数据量较大的情况是非常有用的操作。
+也支持常规的排序调整</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;对象数组&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;对象数组嵌套功能&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;array&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;minItems&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;maxItems&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;object&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;properties&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;input1&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;简单输入框&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ui:hidden&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{rootValue.selet1 !== 'b'}}&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;selet1&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;单选&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;enum&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;b&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;c&quot;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;enumNames&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;早&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;中&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;晚&quot;</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div id="string0" style="height:300;overflow:hidden;"><iframe src="/vue-form-render/dist/#/docs/list" style="border:none;width:100%;height:300px;"></iframe></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/muwoo/vue-form-render/edit/master/component/array.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-form-render/component/boolean.html" class="prev">
+        boolean
+      </a></span> <span class="next"><a href="/vue-form-render/component/object.html">
+        object
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-form-render/assets/js/app.9a6a7b4f.js" defer></script><script src="/vue-form-render/assets/js/2.b1234189.js" defer></script><script src="/vue-form-render/assets/js/16.355da039.js" defer></script><script src="/vue-form-render/assets/js/3.67d708ca.js" defer></script><script src="/vue-form-render/assets/js/5.ef56a670.js" defer></script>
+  </body>
+</html>
