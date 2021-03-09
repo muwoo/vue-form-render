@@ -23,7 +23,7 @@
   "files": [
     "lib"
   ],
-  "main": "lib/vue3-form-render.common.js",
+  "main": "lib/kaer-form-render.common.js",
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.7",
     "core-js": "^3.6.5",
